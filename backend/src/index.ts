@@ -83,6 +83,26 @@ app.get("/api/auth/google", (req, res, next) => {
   );
 });
 
+app.use(
+  (
+    error: unknown,
+    _req: express.Request,
+    res: express.Response,
+    _next: express.NextFunction,
+  ) => {
+    if (error instanceof Error) {
+      console.error("OAuth/server error:", error.name, error.message);
+    } else {
+      console.error("OAuth/server error:", error);
+    }
+
+    res.status(500).json({
+      error: "SERVER_ERROR",
+      message: "Something went wrong.",
+    });
+  },
+);
+
 app.get(
   "/api/auth/google/callback",
   passport.authenticate("google", {

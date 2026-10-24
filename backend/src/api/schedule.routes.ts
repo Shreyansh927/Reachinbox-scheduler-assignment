@@ -26,21 +26,17 @@ const scheduleSchema = z.object({
 scheduleRoutes.post("/schedule", requireUser, async (req, res) => {
   const parsed = scheduleSchema.safeParse(req.body);
   if (!parsed.success)
-    return res
-      .status(400)
-      .json({
-        error: "VALIDATION_ERROR",
-        message: parsed.error.issues[0]?.message || "Invalid request.",
-      });
+    return res.status(400).json({
+      error: "VALIDATION_ERROR",
+      message: parsed.error.issues[0]?.message || "Invalid request.",
+    });
   const { subject, body, emails, startTime, delayBetweenMs, hourlyLimit } =
     parsed.data;
   if (startTime.getTime() < Date.now())
-    return res
-      .status(400)
-      .json({
-        error: "VALIDATION_ERROR",
-        message: "Start time cannot be in the past.",
-      });
+    return res.status(400).json({
+      error: "VALIDATION_ERROR",
+      message: "Start time cannot be in the past.",
+    });
 
   const uniqueEmails = [...new Set(emails)];
   const user = req.user as { id: string; email: string };
@@ -85,21 +81,17 @@ scheduleRoutes.post("/schedule", requireUser, async (req, res) => {
       })),
     );
   } catch (error) {
-    return res
-      .status(503)
-      .json({
-        error: "QUEUE_UNAVAILABLE",
-        message:
-          "Emails were saved, but queueing failed. Please contact support before retrying.",
-      });
+    return res.status(503).json({
+      error: "QUEUE_UNAVAILABLE",
+      message:
+        "Emails were saved, but queueing failed. Please contact support before retrying.",
+    });
   }
 
-  return res
-    .status(201)
-    .json({
-      created: created.length,
-      duplicatesRemoved: emails.length - uniqueEmails.length,
-    });
+  return res.status(201).json({
+    created: created.length,
+    duplicatesRemoved: emails.length - uniqueEmails.length,
+  });
 });
 
 scheduleRoutes.get("/scheduled", requireUser, async (req, res) => {
