@@ -19,7 +19,7 @@ const frontendUrl = process.env.FRONTEND_URL || "http://localhost:5173";
 
 app.use(
   cors({
-    origin: "https://reachinbox-scheduler-assignment-frontend.onrender.com",
+    origin: frontendUrl,
     credentials: true,
   }),
 );
