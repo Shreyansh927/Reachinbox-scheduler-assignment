@@ -53,8 +53,28 @@ app.use((req, _res, next) => {
 app.use(passport.initialize());
 app.use(passport.session());
 
-passport.serializeUser((user, done) => done(null, user));
-passport.deserializeUser((user: Express.User, done) => done(null, user));
+passport.serializeUser((user: any, done) => {
+  done(null, user.id);
+});
+
+passport.deserializeUser(async (id: string, done) => {
+  try {
+    const result = await db.query(
+      `SELECT id, google_id, name, email, avatar
+       FROM users
+       WHERE id = $1`,
+      [id],
+    );
+
+    if (result.rows.length === 0) {
+      return done(null, false);
+    }
+
+    done(null, result.rows[0] as Express.User);
+  } catch (error) {
+    done(error as Error);
+  }
+});
 
 if (process.env.GOOGLE_CLIENT_ID && process.env.GOOGLE_CLIENT_SECRET) {
   passport.use(
