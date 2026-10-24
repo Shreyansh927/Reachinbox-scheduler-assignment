@@ -1,8 +1,53 @@
 # ReachInbox Email Scheduler
 
 ## Live Demo & Video
-- Live link: Not deployed
-- Demo video: Add your recorded demo link before submission
+- Live link: [Not deployed](https://reachinbox-scheduler-assignment-frontend.onrender.com/)
+- Demo video: [Add your recorded demo link before submission](https://drive.google.com/file/d/1qAE_pMYmGcSyghBmfOC8lw7KKCrKaRUS/view?usp=drive_link)
+
+
+## Screenshots
+
+### Application Overview
+
+<table>
+  <tr>
+    <td align="center">
+      <strong>Screenshot 1</strong><br/>
+      <img src="./screenshots/screenshot-1.png" alt="Application screenshot 1" width="100%"/>
+    </td>
+    <td align="center">
+      <strong>Screenshot 2</strong><br/>
+      <img src="./screenshots/screenshot-2.png" alt="Application screenshot 2" width="100%"/>
+    </td>
+  </tr>
+  <tr>
+    <td align="center">
+      <strong>Screenshot 3</strong><br/>
+      <img src="./screenshots/screenshot-3.png" alt="Application screenshot 3" width="100%"/>
+    </td>
+    <td align="center">
+      <strong>Screenshot 4</strong><br/>
+      <img src="./screenshots/screenshot-4.png" alt="Application screenshot 4" width="100%"/>
+    </td>
+  </tr>
+  <tr>
+    <td align="center">
+      <strong>Screenshot 5</strong><br/>
+      <img src="./screenshots/screenshot-5.png" alt="Application screenshot 5" width="100%"/>
+    </td>
+    <td align="center">
+      <strong>Screenshot 6</strong><br/>
+      <img src="./screenshots/screenshot-6.png" alt="Application screenshot 6" width="100%"/>
+    </td>
+  </tr>
+  <tr>
+    <td colspan="2" align="center">
+      <strong>Screenshot 7</strong><br/>
+      <img src="./screenshots/screenshot-7.png" alt="Application screenshot 7" width="80%"/>
+    </td>
+  </tr>
+</table>
+
 
 ## Tech Stack
 - Backend: TypeScript, Express, PostgreSQL, BullMQ, Redis, Nodemailer, Zod, Passport Google OAuth
