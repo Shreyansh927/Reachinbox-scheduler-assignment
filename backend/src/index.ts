@@ -37,6 +37,18 @@ app.use(
     },
   }),
 );
+app.use((req, _res, next) => {
+  if (req.path === "/api/auth/me") {
+    console.log("Session diagnostic:", {
+      cookieReceived: Boolean(req.headers.cookie?.includes("reachinbox.sid=")),
+      sessionID: req.sessionID,
+      passportUserPresent: Boolean(req.user),
+      sessionHasPassport: Boolean((req.session as any)?.passport?.user),
+    });
+  }
+
+  next();
+});
 app.use(passport.initialize());
 app.use(passport.session());
 
