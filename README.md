@@ -1,8 +1,8 @@
 # ReachInbox Email Scheduler
 
 ## Live Demo & Video
-- Live link: [Not deployed](https://reachinbox-scheduler-assignment-frontend.onrender.com/)
-- Demo video: [Add your recorded demo link before submission](https://drive.google.com/file/d/1qAE_pMYmGcSyghBmfOC8lw7KKCrKaRUS/view?usp=drive_link)
+- Live link: (https://reachinbox-scheduler-assignment-frontend.onrender.com/)
+- Demo video: (https://drive.google.com/file/d/1qAE_pMYmGcSyghBmfOC8lw7KKCrKaRUS/view?usp=drive_link)
 
 
 ## Screenshots
