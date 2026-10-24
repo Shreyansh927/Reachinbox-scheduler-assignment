@@ -1,5 +1,6 @@
 import "dotenv/config";
 import express from "express";
+import "./queue/worker";
 import cors from "cors";
 import session from "express-session";
 import passport from "passport";
